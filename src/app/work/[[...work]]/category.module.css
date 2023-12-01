@@ -1,0 +1,3 @@
+.main * + :is(h2,h3,h4,h5,h6,aside,figure) {
+  margin-top: clamp(2rem, 10cqw, 4.625rem);
+}

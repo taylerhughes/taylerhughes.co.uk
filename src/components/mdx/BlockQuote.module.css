@@ -1,0 +1,20 @@
+.root {
+  & > blockQuote {
+    margin-left: -1ch;
+    display: grid;
+    grid-template-columns: 1ch 1fr auto;
+
+    &::before {
+      font-size: inherit;
+      font-weight: bold;
+      content: open-quote;
+    }
+
+    & > p {
+      max-width: 40ch;
+      &::after {
+        content: close-quote;
+      }
+    }
+  }
+}

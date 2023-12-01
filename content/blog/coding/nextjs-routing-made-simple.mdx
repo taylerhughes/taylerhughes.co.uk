@@ -1,0 +1,52 @@
+---
+title: "Next.js Routing Made Simple"
+date: 2023-11-07
+description: "Exploring the file-system based routing offered by Next.js."
+featured_image:
+  url: https://images.unsplash.com/photo-1554847464-bce967372cb7
+  alt: "Routing pattern on a wall"
+  width: 1232
+  height: 620
+author:
+  name: Randy Smith
+  avatar: /authors/randy.jpg
+---
+One of the strengths of Next.js that sets it apart from other frameworks, such as Create React App and Gatsby.js, is its file-system based routing.
+
+## Next.js Routing: An Introduction
+
+Next.js optimizes routing by tying routes to file names in the 'pages' directory. Each file in the 'pages' directory corresponds to a route based on its file name.
+
+```js
+function About() {
+  return (
+    <h1>About Us</h1>
+  )
+}
+
+export default About
+```
+
+The above code, when placed in a file named about.js inside the pages directory, becomes accessible at the /about route.
+
+### Dynamic Routes in Next.js
+Next.js also supports dynamic routes, allowing you to capture parts of the URL as parameters for your pages.
+
+```js
+function UserProfile({ userId }) {
+  return (
+    <h1>Welcome, user {userId}</h1>
+  )
+}
+
+UserProfile.getInitialProps = async ({ query }) => {
+  return { userId: query.id }
+}
+
+export default UserProfile
+```
+
+Here, if the file resides in `pages/user/[id].js`, you can access `http://localhost:3000/user/123`, and the page displays "Welcome, user 123". The router populates the `[id]` in the page's path with the appropriate parameter from the URL.
+
+### Conclusion
+The simplicity and intuitiveness of Next.js' file-system based routing makes developing React applications significantly smoother. It eliminates much of the manual configuration other routers, such as react-router, require, allowing you to focus on building great user experiences.

@@ -1,0 +1,62 @@
+.grad {
+  z-index: -10;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+.fade {
+  &::before {
+    content: "";
+    width: 0.25rem;
+    background: linear-gradient(0deg, hsl(var(--primary-foreground)) 0%, rgba(217, 217, 217, 0.00) 100%);
+    top: -10rem;
+    position: absolute;
+    height: 10rem;
+  }
+  &::after {
+    content: "";
+    width: 0.25rem;
+    background: linear-gradient(180deg, hsl(var(--primary-foreground)) 0%, rgba(217, 217, 217, 0.00) 100%);
+    bottom: -10rem;
+    position: absolute;
+    height: 10rem;
+  }
+}
+
+.circle {
+  &::after {
+    @apply hidden xs:grid text-neutral-50 dark:text-neutral-900 shadow shadow-accent font-mono text-lg;
+
+    place-content: center;
+    content: counter(test);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    position: absolute;
+    background: hsl(var(--primary-foreground));
+    top: 50%;
+    right: calc(-2.5rem);
+    font-weight: 900;
+
+    @media (width > 768px) {
+      right: calc(-5rem);
+    }
+  }
+}
+
+.reset {
+  counter-reset: test;
+}
+
+.section {
+  counter-increment: test;
+}
+
+.grad {
+  background-image:
+    radial-gradient(at 50% 50%, hsl(0deg 100% 38.63% / 4%) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, hsl(231deg 100% 15.78% / 12%) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, hsl(0deg 82.11% 29.71% / 24%) 0px, transparent 50%),
+    radial-gradient(at center, hsl(228.91deg 100% 50% / 16%) 0px, transparent 50%)
+}

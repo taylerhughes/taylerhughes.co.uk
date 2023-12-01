@@ -1,0 +1,75 @@
+/* Only works if a parent is a @container */
+.bodyContent {
+  & > *:not(figure) {
+    margin-bottom: clamp(1rem, 4cqw, 1.5rem);
+  }
+  :where(p,ul,ol) {
+    font-size: clamp(1rem, 4cqw, 1.25rem);
+    max-width: 63ch;
+  }
+  :where(h1,h2) {
+    font-size: clamp(1.5rem, 6cqw, 2.25rem);
+    line-height: 1.125;
+  }
+  :where(h3,h4) {
+    font-size: clamp(1.25rem, 6cqw, 1.85rem);
+    line-height: 1.125;
+  }
+  :where(ul,ol) li {
+    padding-left: 0.375em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+  :where(ul) {
+    padding-left: var(--margin);
+    list-style: disc outside;
+    & li {
+      &::marker {
+      }
+    }
+  }
+  :where(ol) {
+    padding-left: var(--margin);
+    list-style: decimal outside;
+  }
+  /* From https://play.tailwindcss.com/uj1vGACRJA?layout=preview */
+  :where(table) {
+    width: 100%;
+    table-layout: auto;
+    text-align: left;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    font-size: 0.875em;
+    line-height: 1.7142857;
+  }
+  :where(thead) {
+    border-bottom-width: 1px;
+    border-bottom-color: color-mix(
+    in srgb,
+    rgb(var(--foreground-rgb)) 30%,
+    transparent
+    );
+  }
+  :where(th,td) {
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+
+    font-weight: 600;
+    vertical-align: bottom;
+    padding-right: 0.5714286em;
+    padding-bottom: 0.5714286em;
+    padding-left: 0.5714286em;
+  }
+
+  :where(tbody td) {
+    font-weight: normal;
+    vertical-align: baseline;
+    padding-top: 0.5714286em;
+    padding-right: 0.5714286em;
+    padding-bottom: 0.5714286em;
+  }
+}

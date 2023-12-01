@@ -1,0 +1,41 @@
+
+[data-line-numbers] {
+  @apply [counter-reset:line] before:[&>span]:mr-3 before:[&>span]:inline-block before:[&>span]:w-4 before:[&>span]:text-right before:[&>span]:text-white/20 before:[&>span]:![content:counter(line)] before:[&>span]:[counter-increment:line]
+}
+
+[data-highlighted-line]{
+  @apply !border-l-secondary/70 bg-tertiary/30 before:!text-white/70;
+}
+
+
+div[data-rehype-pretty-code-fragment] {
+
+  & pre {
+    @apply overflow-hidden rounded-lg bg-bgDark ring-1 ring-rose-100/[3%] ring-inset overflow-x-auto text-[13px] [color-scheme:dark] overflow-y-auto text-sm leading-6 py-2;
+  }
+
+  & code {
+    @apply grid [&>span]:border-l-4 [&>span]:border-l-transparent [&>span]:pl-2 [&>span]:pr-3
+  }
+
+  [data-rehype-pretty-code-title] {
+    @apply relative z-10 mb-0.5 rounded-lg bg-tertiary/10 px-3 py-1 font-mono text-xs text-primary/70 shadow-sm;
+
+    & + pre {
+      margin-top: calc(-1.5rem - 1px);
+      @apply pt-[2rem]
+    }
+  }
+}
+
+span[data-rehype-pretty-code-fragment] {
+  @apply px-1.5 py-px text-sm rounded-full whitespace-nowrap bg-bgDark;
+
+  & code {
+    @apply !bg-transparent
+  }
+}
+
+[data-rehype-pretty-code-caption] {
+  @apply text-xs pt-2 text-secondary;
+}

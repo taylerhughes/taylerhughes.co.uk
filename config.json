@@ -1,0 +1,9 @@
+{
+  "defaultAuthorName": "Randy Smith",
+  "defaultAvatarPath": "/authors/randy.jpg",
+  "blogRoot": "content/blog",
+  "featuredImage": {
+    "width": 1232,
+    "height": 620
+  }
+}

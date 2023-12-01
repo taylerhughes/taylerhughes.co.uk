@@ -1,0 +1,16 @@
+---
+to: ./content/blog/<%= parentCategoriesPath %>/<%= h.inflection.dasherize(fileName).replace('.mdx', '') %>.mdx
+---
+---
+title: "<%- title %>"
+date: <%= date %>
+description: "<%- description %>"
+<% if (imageUrl) { %>featured_image:
+  url: <%= imageUrl %>
+  alt: "<%- imageAlt %>"
+  width: <%= imageWidth %>
+  height: <%= imageHeight %><% } %>
+author:
+  name: <%- authorName %>
+  avatar: <%= authorAvatar %>
+---
